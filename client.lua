@@ -21,7 +21,7 @@ local function checkIfUserHasItem(--[[optional]] itemName)
 	-- local player = PlayerPedId()
 	--  0x8425C5F057012DAB == _GET_PED_CURRENT_HELD_WEAPON
     -- local weapon = Citizen.InvokeNative(0x8425C5F057012DAB, player)
-	-- local WeaponData = RSGCore.Shared.Weapons[weapon]
+	-- local WeaponData = RSGCore.Shared.Items[weapon]
 	-- local _userHasItem = RSGCore.Functions.HasItem(WeaponData[_itemName])
 
 	local _userHasItem = RSGCore.Functions.HasItem(_itemName)
@@ -33,7 +33,7 @@ local function checkIfUserHasItem(--[[optional]] itemName)
 end
 
 local function toggle()
-	if not checkIfUserHasItem then
+	if not checkIfUserHasItem() then
 		return
 	end
 	enabled = not enabled
