@@ -19,6 +19,7 @@ local function checkIfUserHasItem(--[[optional]] itemName)
 	local _itemName = itemName or Config.WeaponName
 
 	-- local player = PlayerPedId()
+	--  0x8425C5F057012DAB == _GET_PED_CURRENT_HELD_WEAPON
     -- local weapon = Citizen.InvokeNative(0x8425C5F057012DAB, player)
 	-- local WeaponData = RSGCore.Shared.Weapons[weapon]
 	-- local _userHasItem = RSGCore.Functions.HasItem(WeaponData[_itemName])
