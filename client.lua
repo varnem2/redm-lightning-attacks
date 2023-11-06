@@ -32,6 +32,9 @@ local function checkIfUserHasItem(--[[optional]] itemName)
 end
 
 local function toggle()
+	if not checkIfUserHasItem then
+		return
+	end
 	enabled = not enabled
 
 	TriggerEvent("chat:addMessage", {
@@ -43,6 +46,10 @@ end
 AddEventHandler("lightning-attacks:toggle", toggle)
 
 AddEventHandler("lightning-attacks:strike", function(targetPos, addExplosion)
+	if not checkIfUserHasItem then
+		return
+	end
+
 	local ped = PlayerPedId()
 	local pos = GetEntityCoords(ped)
 	local distance = #(targetPos - pos)
@@ -63,6 +70,9 @@ AddEventHandler("lightning-attacks:strike", function(targetPos, addExplosion)
 end)
 
 AddEventHandler("lightning-attacks:smite", function()
+	if not checkIfUserHasItem then
+		return
+	end
 	lightningStrike(GetEntityCoords(PlayerPedId()))
 end)
 
