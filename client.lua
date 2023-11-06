@@ -1,3 +1,5 @@
+local RSGCore = exports['rsg-core']:GetCoreObject()
+
 local enabled = false
 local cooldownActive = false
 
@@ -11,6 +13,22 @@ end
 
 local function lightningStrike(targetPos)
 	TriggerServerEvent("lightning-attacks:strike", targetPos)
+end
+
+local function checkIfUserHasItem(--[[optional]] itemName)
+	local _itemName = itemName or Config.WeaponName
+
+	-- local player = PlayerPedId()
+    -- local weapon = Citizen.InvokeNative(0x8425C5F057012DAB, player)
+	-- local WeaponData = RSGCore.Shared.Weapons[weapon]
+	-- local _userHasItem = RSGCore.Functions.HasItem(WeaponData[_itemName])
+
+	local _userHasItem = RSGCore.Functions.HasItem(_itemName)
+	if _userHasItem then
+		return true
+	elseif
+		return false
+	end
 end
 
 local function toggle()
